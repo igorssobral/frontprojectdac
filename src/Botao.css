@@ -1,0 +1,28 @@
+button {
+  display: block;
+  position: absolute;
+  padding: 10px;
+  width: 300px;
+  border-radius: 20px;
+  background-color: #282c34;
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 100px;
+  -webkit-transition: all .2s ease-in;
+  cursor: pointer;
+  box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #282c34;
+}
+
+.button-curso {
+
+
+  top: 100px;
+  position: relative;
+
+}

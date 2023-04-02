@@ -1,0 +1,67 @@
+.tela, .tela-curso{
+ color: #292c33;
+ background-color: #ffffff;
+ width: 500px;
+ height: 700px;
+}
+.tela, .tela-curso {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+.tela span, .tela-curso span{
+    position: relative;
+    bottom: 110px;
+    left: 230px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tela form, .tela-curso form{
+    font-style: oblique ;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+   
+    position: relative;
+    font-weight: bold;
+}
+.tela form{
+     top: 50px;
+}
+
+.tela-curso form{
+    bottom: 50px;
+    padding: 50px;
+    height: 20px;
+}
+.tela input, .tela-curso input{
+    display: grid;
+    border-radius: 20px;
+    height: 30px;
+    width: 270px;
+    right: 50px;
+    font-size: 1rem;
+    justify-items: center;
+    
+}
+
+.tela button,.tela-curso button{
+    position: relative;
+    width: 150px;
+    top: 30px;
+    cursor: pointer;
+}
+
+  
+  .tela h2 , .tela-curso h2{
+    font-size: 50px;
+    margin-top: 0;
+  }
+
+
