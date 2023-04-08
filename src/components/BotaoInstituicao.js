@@ -1,10 +1,10 @@
 import React from "react";
-import "./Botao.css"
+import "./BotaoSelectInstituicaoAndCurso.css"
 
 function BotaoInstituicao(props) {
   return (
-    <button onClick={props.onClick} >
-      Cadastrar Instituição
+    <button className="btn-ins" onClick={props.onClick} >
+      {props.value}
     </button>
 
   );

@@ -1,9 +1,13 @@
+label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .tela,
 .tela-curso {
     color: #292c33;
-    background-color: #ffffff;
-    width: 500px;
-    height: 700px;
+    background-color: #d45f5f;
+    width: 700px;
+    height: 800px;
 }
 
 .tela,
@@ -21,15 +25,15 @@
 .tela span,
 .tela-curso span {
     position: relative;
-    bottom: 110px;
-    left: 230px;
+    bottom: 100px;
+    left: 310px;
     font-weight: bold;
     cursor: pointer;
 }
 
 .tela form,
 .tela-curso form {
-    font-style: oblique;
+    
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -43,9 +47,9 @@
 }
 
 .tela-curso form {
-    bottom: 50px;
-    padding: 50px;
-    height: 20px;
+    bottom: 90px;
+    padding: 10px;
+    
 }
 
 .tela input,
@@ -72,6 +76,7 @@
 
 .tela h2,
 .tela-curso h2 {
+    font-weight: bold;
     font-size: 50px;
     margin-top: 0;
 }

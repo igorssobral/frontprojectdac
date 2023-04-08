@@ -1,11 +1,11 @@
-button {
+.btn-ins,.btn-curso {
   display: block;
   position: absolute;
   padding: 10px;
   width: 300px;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: #282c34;
-  color: white;
+  color: #ffffff;
   font-size: 1.4rem;
   margin-bottom: 100px;
   -webkit-transition: all .2s ease-in;
@@ -14,15 +14,13 @@ button {
 }
 
 
-button:hover {
+.btn-ins:hover,.btn-curso:hover {
   background-color: rgba(255, 255, 255, 0.9);
   color: #282c34;
 }
 
-.button-curso {
-
-
-  top: 100px;
+.btn-curso {
+  bottom: 250px;
   position: relative;
 
 }

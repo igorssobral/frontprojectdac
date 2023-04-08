@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 92.3vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +16,8 @@
 .App-cont {
   background-color: rgb(255, 255, 255);
   display: flex;
-  width: 500px;
-  height: 700px;
+  width: 1100px;
+  height: 800px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -27,11 +27,14 @@
 }
 
 h1#title {
-  color: #282c34;
+  color: #ffffff;
+  background-color: #282c34;
   font-size: 2.2rem;
+  font-weight: bolder;
   display: block;
   flex-direction: column;
-  margin-bottom: 600px;
+  margin-bottom: 700px;
+  width: 1000px;
   position: absolute;
   border-color: #282c34;
   border-style: solid;
@@ -40,9 +43,19 @@ h1#title {
   border-right: 0px;
   border-radius: 50px;
   padding: 10px;
+  
   box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.2);
 }
 
+span#title-create{
+  color: #282c34;
+  font-size: 3.5rem;
+  font-weight: bold;
+  display: flex;
+  position: absolute;
+  top: 300px;
+
+}
 .fundo-tela {
   position: fixed;
   top: 0px;
@@ -50,6 +63,6 @@ h1#title {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
 
 }
