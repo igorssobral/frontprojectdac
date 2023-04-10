@@ -47,7 +47,6 @@ label{
 }
 
 .tela-curso form {
-    bottom: 90px;
     padding: 10px;
     
 }
@@ -80,3 +79,22 @@ label{
     font-size: 50px;
     margin-top: 0;
 }
+.save-curso,.save-instituicao {
+    display: block;
+    position: absolute;
+    padding:10px;
+    border-radius: 35px;
+    background-color: #282c34;
+    color: #f7f7f7;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    -webkit-transition: all .2s ease-in;
+    cursor: pointer;
+    box-shadow: 2px 5px 6px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  .save-curso:hover,.save-instituicao:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #282c34;
+  }

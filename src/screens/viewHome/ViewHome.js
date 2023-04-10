@@ -3,7 +3,7 @@ import BotaoInstituicao from '../../components/BotaoInstituicao';
 import BotaoCurso from '../../components/BotaoCurso';
 import TelaInstituicao from '../createInstituicao/TelaInstituicao';
 import TelaCurso from '../createCurso/TelaCurso';
-import Card from '../../components/Card'; 
+import Card from '../../components/AppCont';
 import { withRouter } from 'react-router-dom';
 
 class ViewHome extends React.Component {
@@ -15,37 +15,37 @@ class ViewHome extends React.Component {
   }
 
   handleClick = () => {
-    this.setState(state =>{
-        return {stateScreenInstituicao: !state.stateScreenInstituicao}
+    this.setState(state => {
+      return { stateScreenInstituicao: !state.stateScreenInstituicao }
     });
   }
-   handleClose = () => {
-    this.setState(state =>{
-        return {stateScreenInstituicao: !state.stateScreenInstituicao}
+  handleClose = () => {
+    this.setState(state => {
+      return { stateScreenInstituicao: !state.stateScreenInstituicao }
     });
   }
- handleClickCurso = () => {
-    this.setState(state =>{
-        return {stateScreenCurso: !state.stateScreenCurso}
+  handleClickCurso = () => {
+    this.setState(state => {
+      return { stateScreenCurso: !state.stateScreenCurso }
     });
   }
   handleCloseCurso = () => {
-    this.setState(state =>{
-        return {stateScreenCurso: !state.stateScreenCurso}
+    this.setState(state => {
+      return { stateScreenCurso: !state.stateScreenCurso }
     });
   }
-  render(){
+  render() {
     return (
-      <div className="App">    
-        <header class="App-header">
+      <div className="App">
+        <header className="App-header">
 
           <Card />
-            <h1 id="title" >Gerenciamento Institucional</h1>
-             <span id='title-create'>Cadastrar</span>
-           
-              
-              <BotaoInstituicao onClick={this.handleClick} value="Instituição"/>
-          <BotaoCurso onClick={this.handleClickCurso}  value="Curso"/>
+          <h1 id="title" >Gerenciamento Institucional</h1>
+          <span id='title-create'>Cadastrar</span>
+
+
+          <BotaoInstituicao onClick={this.handleClick} value="Instituição" />
+          <BotaoCurso onClick={this.handleClickCurso} value="Curso" />
 
           {this.state.stateScreenInstituicao &&
             <div>
@@ -53,24 +53,23 @@ class ViewHome extends React.Component {
               <TelaInstituicao titulo="Instituição" onFechar={this.handleClose} />
             </div>
           }
-            
+
           {this.state.stateScreenCurso &&
             <div>
               <div className="fundo-tela"></div>
-              <TelaCurso  titulo="Curso" onFechar={this.handleCloseCurso} />
+              <TelaCurso titulo="Curso" onFechar={this.handleCloseCurso} />
             </div>
           }
-          
-            
-          
 
-           </header>
-       
-    </div>
-        
-      
-    );}
+
+        </header>
+
+      </div>
+
+
+    );
   }
+}
 
 
 export default withRouter(ViewHome);

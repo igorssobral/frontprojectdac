@@ -1,23 +1,24 @@
 import React from "react";
 
+
 export default props => {
     const rows = props.instituicoes.map(instituicao => {
         return (
 
-            <tr class="table-dark" key={instituicao.id}>
+            <tr className="table-secondary" key={instituicao.id}>
                 <td>{instituicao.id}</td>
                 <td>{instituicao.nome}</td>
                 <td>{instituicao.email}</td>
                 <td>{instituicao.telefone}</td>             
                 <td>
                 <button type="button" title="Editar" 
-                        className="btn btn-dark"
-                        onClick={e => props.edit(instituicao.id)}>
+                        className="btn btn-info"
+                        onClick={() => props.edite(instituicao.id)}>
                             <i className="pi pi-trash"></i>
                 </button>
                 <button type="button" title="Excluir" 
-                        className="btn btn-warning"
-                        onClick={e => props.delete(instituicao.id)}>
+                        className="btn btn-danger"
+                        onClick={() => props.delete(instituicao.id)}>
                            <i className="pi pi-trash"></i>
 
 
@@ -28,7 +29,7 @@ export default props => {
     })
 
     return(
-        <table class="table table-hover">
+        <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>

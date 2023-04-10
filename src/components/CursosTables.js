@@ -4,23 +4,23 @@ export default props => {
     const rows = props.cursos.map(curso => {
         return (
 
-            <tr class="table-dark" key={curso.id}>
+            <tr className="table-dark" key={curso.id}>
                 <td>{curso.id}</td>
                 <td>{curso.nome}</td>
                 <td>{curso.cargaHoraria}</td>
                 <td>{curso.periodos}</td>
                 <td>{curso.mensalidade}</td>
-                <td>{curso.instituicaoID}</td>
+                <td>{curso.instituicaoId}</td>
                              
                 <td>
                 <button type="button" title="Editar" 
                         className="btn btn-dark"
-                        onClick={e => props.edit(curso.id)}>
+                        onClick={() => props.edite(curso.id)}>
                             <i className="pi pi-trash"></i>
                 </button>
                 <button type="button" title="Excluir" 
                         className="btn btn-warning"
-                        onClick={e => props.delete(curso.id)}>
+                        onClick={() => props.delete(curso.id)}>
                            <i className="pi pi-trash"></i>
 
 
@@ -31,7 +31,7 @@ export default props => {
     })
 
     return(
-        <table class="table table-hover">
+        <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
