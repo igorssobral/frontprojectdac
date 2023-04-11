@@ -20,10 +20,11 @@ class DeleteCurso extends React.Component{
 
 
     delete = () => {
-        axios.put(`http://localhost:8080/curso/${this.state.id}`
+        axios.delete(`http://localhost:8080/curso/${this.state.id}`
         ).then( response => 
             {
-                alert(`Usuário ${this.state.id} deletado com sucesso`);
+                alert(`Curso ${this.state.id} deletado com sucesso`);
+                
             }
         ).catch( error => 
             {

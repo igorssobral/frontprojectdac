@@ -7,7 +7,7 @@ export default props => {
 
             <tr className="table-dark" key={instituicao.id}>
                 <td>{instituicao.id}</td>
-                <td>{instituicao.name}</td>
+                <td>{instituicao.nome}</td>
                 <td>{instituicao.email}</td>
                 <td>{instituicao.telefone}</td>             
                 <td>

@@ -76,7 +76,7 @@ class UpdateInstituicao extends React.Component {
     render() {
         return (
             <div className='container'>
-                <Card title="Atualização da Instituicao">
+                <Card title="Atualização da Instituição">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="bs-component">
