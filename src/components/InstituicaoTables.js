@@ -5,20 +5,17 @@ export default props => {
     const rows = props.instituicoes.map(instituicao => {
         return (
 
-            <tr className="table-secondary" key={instituicao.id}>
+            <tr className="table-dark" key={instituicao.id}>
                 <td>{instituicao.id}</td>
-                <td>{instituicao.nome}</td>
+                <td>{instituicao.name}</td>
                 <td>{instituicao.email}</td>
                 <td>{instituicao.telefone}</td>             
                 <td>
-                <button type="button" title="Editar" 
-                        className="btn btn-info"
-                        onClick={() => props.edite(instituicao.id)}>
-                            <i className="pi pi-trash"></i>
-                </button>
+                
+
                 <button type="button" title="Excluir" 
                         className="btn btn-danger"
-                        onClick={() => props.delete(instituicao.id)}>
+                        onClick={ e => props.delete(instituicao.id)}>
                            <i className="pi pi-trash"></i>
 
 

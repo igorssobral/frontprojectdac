@@ -12,14 +12,33 @@ class UpdateCurso extends React.Component {
     state = {
         id: 0,
         nome: '',
-        cargaHoraria: 0,
-        periodos: 0,
-        mensalidade: 0,
-        instituicaoId: 0
+        cargaHoraria: '',
+        periodos: '',
+        mensalidade: '',
+        instituicaoId: ''
 
     }
 
 
+    findById = (cursoId) => {
+        axios.get(`http://localhost:8080/curso/${cursoId}`)
+        .then( response => 
+            {
+                const curso = response.data[0];
+                const id = curso.id;
+                const name = curso.name;
+                const cargaHoraria = curso.cargaHoraria;
+                const mensalidade = curso.mensalidade;
+                const instituicaoId = curso.instituicaoId;
+
+                this.setState({id, name, cargaHoraria, mensalidade, instituicaoId});
+            }
+        ).catch( error => 
+            {
+                console.log(error.response);
+            }
+        );
+    }
 
 
 
@@ -36,7 +55,7 @@ class UpdateCurso extends React.Component {
             }
         ).then(response => {
             console.log(response);
-            alert(`Curso ${this.state.name} atualizado com sucesso`);
+            alert(`Curso ${this.state.nome} atualizado com sucesso`);
             this.props.history.push('/viewCurso');
         }
         ).catch(error => {
@@ -66,6 +85,14 @@ class UpdateCurso extends React.Component {
                         <div className="col-lg-12">
                             <div className="bs-component">
 
+                                <FormGroup label="ID" htmlFor="inputId">
+
+                                    <input type="text"
+                                        className="form-control"
+                                        placeholder="Digite o Id" id="inputId"
+                                        value={this.state.id}
+                                        onChange={(e) => this.setState({ id: e.target.value })} />
+                                </FormGroup>
                                 <FormGroup label="Nome" htmlFor="inputNome">
 
                                     <input type="text"
@@ -105,7 +132,7 @@ class UpdateCurso extends React.Component {
                                 <FormGroup label="Instituição ID" htmlFor="inputInsID">
                                     <input type="number"
                                         className="form-control"
-                                        placeholder="Digite um Periodo"
+                                        placeholder="Digite o ID da Instituição"
                                         id="inputInsID"
                                         value={this.state.instituicaoId}
                                         onChange={(e) => this.setState({ instituicaoId: e.target.value })} />

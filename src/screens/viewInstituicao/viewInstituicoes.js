@@ -1,6 +1,6 @@
 import React from "react";
 
-import { withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import axios from 'axios';
 
 import InstituicaoTables from "../../components/InstituicaoTables";
@@ -21,6 +21,8 @@ class ViewInstituicao extends React.Component {
 
         ]
     }
+ 
+    
 
     find = () => {
         var params = '?';
@@ -56,6 +58,7 @@ class ViewInstituicao extends React.Component {
         axios.get(`http://localhost:8080/instituicao${params}`
 
         ).then(response => {
+
             const instituicoes = response.data;
             this.setState({ instituicoes });
             console.log(instituicoes)
@@ -66,10 +69,12 @@ class ViewInstituicao extends React.Component {
         );
     }
     delete = (instituicaoId) => {
+
         axios.delete(`http://localhost:8080/instituicao/${instituicaoId}`
         ).then(response => {
-            alert('Instituição deletada com  Sucesso!')
+            
             this.find();
+            
         }
         ).catch(error => {
             console.log(error.response);
@@ -78,18 +83,15 @@ class ViewInstituicao extends React.Component {
         );
     }
 
-    edite = (instituicaoId) => {
-        this.props.history.push(`/updateInstituicao/${instituicaoId}`);
-    }
+    
 
 
     render() {
+        
         return (
 
             <div>
                 <Card title="Consulta Instituições">
-
-                  
 
                     <FormGroup label="ID" htmlFor="inputId">
                         <input type="text" className="form-control"

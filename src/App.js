@@ -4,17 +4,19 @@ import Navbar from './components/Navbar';
 import AppRoutes from './main/AppRoutes';
 import './App.css';
 
-function App() {
 
+export default class App extends React.Component {
+
+  render(){
     return (
       <div className="App">
        <Navbar/>
         <AppRoutes/> 
       </div>
-    );
+    )
   }
+}
 
 
-export default App;
 
 

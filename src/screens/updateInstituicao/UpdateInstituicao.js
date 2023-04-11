@@ -1,26 +1,26 @@
 import React from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+
 import FormGroup from "../../components/FormGroup";
 import Card from "../../components/Card";
+import { withRouter } from "react-router-dom";
 
 
 class UpdateInstituicao extends React.Component {
 
     state = {
-        id: 0 ,
+        id: '' ,
         name : '',
         email: '',
         telefone: '', 
         
     }
 
-    
 
     componentDidMount(){
         const params = this.props.match.params;
         const id = params.id;
-        this.findById(id);
+       return  this.findById(id);
     }
   
     findById = (instituicaoId) => {
@@ -85,8 +85,8 @@ class UpdateInstituicao extends React.Component {
                         <input type="text" className="form-control"
                              id="inputId" 
                             value={this.state.id}
-                            
-                            name='nome'
+                            placeholder="Digite um Id"
+                           
                             onChange={(e) => this.setState({ id: e.target.value })} />
                     </FormGroup>
                     <FormGroup label="Nome" htmlFor="inputNome">
@@ -94,7 +94,7 @@ class UpdateInstituicao extends React.Component {
                         <input type="text" className="form-control"
                             placeholder="Digite o nome" id="inputNome"
                             value={this.state.name}
-                            name='name'
+                            
                             onChange={(e) => this.setState({ name: e.target.value })} />
                     </FormGroup>
                     
@@ -102,7 +102,7 @@ class UpdateInstituicao extends React.Component {
                         <input type="email" className="form-control" 
                             placeholder="Digite um email" 
                             id="inputEmail"
-                            name="email"
+                            
                             value={this.state.email} 
                             onChange={(e) => this.setState({ email: e.target.value })} />
 
@@ -113,7 +113,7 @@ class UpdateInstituicao extends React.Component {
                             className="form-control" 
                             placeholder="Digite um telefone" 
                             id="inputTelefone"
-                            name="telefone"
+                            
                             value={this.state.telefone} 
                             onChange={(e) => this.setState({ telefone: e.target.value })} />
 
@@ -121,7 +121,8 @@ class UpdateInstituicao extends React.Component {
                     <br />
                     
                     
-                    <br />
+                 
+                   
                     <button onClick={this.update} type="button" className="btn btn-success">
                         <i className="pi pi-save"></i> Atualizar
                     </button>

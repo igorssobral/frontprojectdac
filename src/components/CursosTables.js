@@ -13,13 +13,9 @@ export default props => {
                 <td>{curso.instituicaoId}</td>
                              
                 <td>
-                <button type="button" title="Editar" 
-                        className="btn btn-dark"
-                        onClick={() => props.edite(curso.id)}>
-                            <i className="pi pi-trash"></i>
-                </button>
+            
                 <button type="button" title="Excluir" 
-                        className="btn btn-warning"
+                        className="btn btn-danger"
                         onClick={() => props.delete(curso.id)}>
                            <i className="pi pi-trash"></i>
 

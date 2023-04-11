@@ -43,6 +43,7 @@ export default class Navbar extends React.Component {
 
                             <div className={this.state.instituicaoDropdown ? "dropdown-menu show" : "dropdown-menu"} >
                                 <a className="dropdown-item" href="/ViewInstituicoes">Find</a>
+                                <a className="dropdown-item" href="/UpdateInstituicao">Update</a>
                                 <a className="dropdown-item" href="/DeleteInstituicao">Delete</a>
                             </div>
                         </li>
@@ -57,6 +58,7 @@ export default class Navbar extends React.Component {
                             </a>
                             <div className={this.state.cursoDropdown ? "dropdown-menu show" : "dropdown-menu"} >
                                 <a className="dropdown-item" href="/ViewCursos">Find</a>                               
+                                <a className="dropdown-item" href="/UpdateCurso">Update</a>                               
                                 <a className="dropdown-item" href="/DeleteCurso">Delete</a>
                             </div>
                         </li>

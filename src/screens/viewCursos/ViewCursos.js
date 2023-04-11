@@ -63,9 +63,7 @@ class ViewCursos extends React.Component {
         );
     }
 
-    edite = (cursoId) => {
-        this.props.history.push(`/updateCurso/${cursoId}`);
-    }
+    
     render() {
         return (
 

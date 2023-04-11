@@ -2,7 +2,7 @@ import React from "react";
 
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 
-import ViewInstituicoes from '../screens/viewInstituicao/viewInstituicoes';
+import ViewInstituicoes from '../screens/viewInstituicao/ViewInstituicoes';
 import ViewHome from '../screens/viewHome/ViewHome'
 import ViewCursos from "../screens/viewCursos/ViewCursos";
 import UpdateInstituicao from "../screens/updateInstituicao/UpdateInstituicao";
@@ -19,8 +19,8 @@ function AppRoutes() {
                 <Route component={ViewHome} path="/viewHome" />
                 <Route component={ViewInstituicoes} path="/viewInstituicoes" />
                 <Route component={ViewCursos} path="/viewCursos" />
-                <Route component={UpdateInstituicao} path="/updateInstituicao/:id" />
-                <Route component={UpdateCurso} path="/updateCurso/:id" />
+                <Route component={UpdateInstituicao} path="/updateInstituicao" />
+                <Route component={UpdateCurso} path="/updateCurso" />
                 <Route component={DeleteInstituicao} path="/deleteInstituicao" />
                 <Route component={DeleteCurso} path="/deleteCurso" />
             </Switch>
