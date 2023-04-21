@@ -1,27 +1,22 @@
-import React from "react";
+import React,{ useState } from "react";
 import NavbarItems from "./NavbarItems";
+import { AuthConsumer } from "../main/SessionProvider";
 
-
-export default class Navbar extends React.Component {
+function Navbar(props){
+    const [state, setState] = useState({
+        instituicaoDropdown: false,
+        cursoDropdown: false
+      });
     
-   state = {
-        instituicaoDropdown : false,
-        cursoDropdown : false
-    }
+      const handleClickInstituicao = () => {
+        setState({ ...state, instituicaoDropdown: !state.instituicaoDropdown });
+      }
+    
 
-   handleclickInstituicao = () => {
-        this.setState(state => {
-            return {instituicaoDropdown: !state.instituicaoDropdown}
-        })
-    }
-
-  handleclickCurso = () =>{
-       this.setState(state =>{
-            return {cursoDropdown: !state.cursoDropdown}
-        });
-    }
-
-    render(){
+      const handleClickCurso = () => {
+        setState({ ...state, cursoDropdown: !state.cursoDropdown });
+      }
+    
     return (
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -39,9 +34,9 @@ export default class Navbar extends React.Component {
                                 href="#instituicaoDropdown" role="button" 
                                 aria-haspopup="true"
                                 aria-expanded="false"
-                                 onClick={this.handleclickInstituicao }>Instituição</a>
+                                 onClick={handleClickInstituicao }>Instituição</a>
 
-                            <div className={this.state.instituicaoDropdown ? "dropdown-menu show" : "dropdown-menu"} >
+                            <div className={state.instituicaoDropdown ? "dropdown-menu show" : "dropdown-menu"} >
                                 <a className="dropdown-item" href="/ViewInstituicoes">Find</a>
                                 <a className="dropdown-item" href="/UpdateInstituicao">Update</a>
                                 <a className="dropdown-item" href="/DeleteInstituicao">Delete</a>
@@ -54,9 +49,9 @@ export default class Navbar extends React.Component {
                                 href="#cursoDropdown" role="button" 
                                 aria-haspopup="true"
                                 aria-expanded="false"
-                                onClick={this.handleclickCurso}>Curso
+                                onClick={handleClickCurso}>Curso
                             </a>
-                            <div className={this.state.cursoDropdown ? "dropdown-menu show" : "dropdown-menu"} >
+                            <div className={state.cursoDropdown ? "dropdown-menu show" : "dropdown-menu"} >
                                 <a className="dropdown-item" href="/ViewCursos">Find</a>                               
                                 <a className="dropdown-item" href="/UpdateCurso">Update</a>                               
                                 <a className="dropdown-item" href="/DeleteCurso">Delete</a>
@@ -64,13 +59,21 @@ export default class Navbar extends React.Component {
                         </li>
 
                         <NavbarItems href="/" label="About" />
+                        <NavbarItems render={!props.isAuthenticated} href="/login" label="Login" />
+                    <NavbarItems render={props.isAuthenticated} href='/login' onClick={props.logout} label="Sair" />
                     </ul>
 
                 </div>
             </div>
         </nav>
     )}
+    export default () => (
+        <AuthConsumer>
+          {(context) => (
+              <Navbar isAuthenticated={context.isAuthenticated} logout={context.end} />
+          )}
+        </AuthConsumer>
+      )
 
 
-}
 
