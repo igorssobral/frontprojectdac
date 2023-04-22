@@ -39,9 +39,6 @@ function AppRoutes(props) {
                 <Route component={ScreenLogin} path="/login" />
                 <Route component={ScreenCreateUser} path="/cadastroUser" />
                
-               
-               
-               
                 <RestrictedRoute show={props.isAuthenticade} component={ViewInstituicoes} path="/viewInstituicoes" />
                 <RestrictedRoute show={props.isAuthenticade} component={ViewHome} path="/viewHome" />
                 <RestrictedRoute show={props.isAuthenticade} component={ViewCursos} path="/viewCursos" />

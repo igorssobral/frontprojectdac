@@ -13,13 +13,13 @@ export default class App extends React.Component {
 
   render(){
     return (
-      <div className="App">
+      
         <SessionProvider>
          <Navbar/>
           <AppRoutes/> 
         </SessionProvider>
 
-      </div>
+      
     )
   }
 }

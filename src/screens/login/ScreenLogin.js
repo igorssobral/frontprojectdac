@@ -4,7 +4,7 @@ import React from "react";
 
 import Card from '../../components/Card';
 
-import { showSuccessMessage, showErrorMessage, showWarningMessage } from '../../components/Toastr';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 import { AuthContext  } from '../../main/SessionProvider';
 
@@ -22,8 +22,9 @@ class Login extends React.Component {
         ).then(user =>  
           {
             if(user){
+              localStorage.setItem('logedUser', JSON.stringify(user.data));
               showSuccessMessage(`Bem vindo, ${user.name}`);
-              this.props.history.push('/viewUsers');
+              window.open('/viewUsers');
             }else{
               showErrorMessage('Login inválido!');
             }
@@ -36,7 +37,7 @@ class Login extends React.Component {
   }
 
   createUser = () => {
-    this.props.history.push('/cadastroUser');
+    window.open('/cadastroUser', '_self');
   }
 
   render(){

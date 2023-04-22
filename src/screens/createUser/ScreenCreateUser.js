@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import FormGroup from "../../components/FormGroup";
 import axios from "axios";
 
-import { showSuccessMessage, showErrorMessage, showWarningMessage } from '../../components/Toastr';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 import Card from "../../components/Card";
 
 
@@ -15,14 +15,14 @@ class ScreenCreateUser extends React.Component{
     name : '',
     email: '', 
     password: '',
-    passwordRepeat : '',
+    passwordRepeat : ''
 }
 
 create = () => {
     const errors = this.validate();
 
     if(errors.length > 0){
-        errors.forEach( (message, index) => {
+        errors.forEach( (message ) => {
             showErrorMessage(message);
         } );
         return false;
@@ -34,10 +34,10 @@ create = () => {
             email: this.state.email,
             password: this.state.password
         }
-    ).then( response => 
+    ).then( message => 
         {
             showSuccessMessage("Usuário criado com sucesso!");
-            this.props.history.push("/login");
+            window.open("/login", '_self');
         }
     ).catch( error => 
         {
@@ -47,7 +47,7 @@ create = () => {
 }
 
 cancel = () => {
-    this.props.history.push('/');
+    window.open('/','_self');
 }
 
 validate = () => {
