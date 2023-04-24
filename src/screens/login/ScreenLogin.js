@@ -37,7 +37,7 @@ class Login extends React.Component {
   }
 
   createUser = () => {
-    window.open('/cadastroUser', '_self');
+    window.open('/createUser', '_self');
   }
 
   render(){

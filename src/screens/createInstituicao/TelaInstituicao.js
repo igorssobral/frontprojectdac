@@ -1,7 +1,8 @@
 import React from 'react';
 import '../../screens/Telas.css'
 import FormGroup from '../../components/FormGroup';
-import axios from 'axios';
+import InstituicaoApiService from '../../services/InstituicaoApiService';
+import { showSuccessMessage } from '../../components/Toastr';
 
 export default class TelaInstituicao extends React.Component {
 
@@ -11,8 +12,13 @@ export default class TelaInstituicao extends React.Component {
     telefone: ''
   }
 
+
+  constructor(){
+    super();
+    this.service = new InstituicaoApiService();
+  }
   saves = () => {
-    axios.post('http://localhost:8080/instituicao',
+    this.service.create(
     {
     nome: this.state.nome,
     email: this.state.email,
@@ -21,7 +27,7 @@ export default class TelaInstituicao extends React.Component {
   ).then(response =>
     {
       console.log(response);
-      alert('Instituição foi salva com Sucesso!')
+      showSuccessMessage('Instituição foi salva com Sucesso!')
     }
 
   ).catch( error =>

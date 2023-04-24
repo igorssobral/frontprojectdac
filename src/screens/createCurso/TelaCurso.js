@@ -1,7 +1,8 @@
 import React from "react";
 import '../../screens/Telas.css'
 import FormGroup from "../../components/FormGroup";
-import axios from "axios";
+import CursoApiService from "../../services/CursoApiService";
+import { showSuccessMessage } from '../../components/Toastr';
 
 export default class TelaCurso extends React.Component {
 
@@ -13,9 +14,13 @@ export default class TelaCurso extends React.Component {
     instituicaoId: ''
 
   }
+  constructor(){
+    super();
+    this.service = new CursoApiService();
+}
 
   saves = () => {
-    axios.post('http://localhost:8080/curso',
+    this.service.create(
     {
       nome: this.state.nome,
       cargaHoraria: this.state.cargaHoraria,
@@ -26,8 +31,8 @@ export default class TelaCurso extends React.Component {
     }
   ).then(response =>
     {
-      console.log(response);
-      alert("Curso foi salvo com sucesso!");
+      
+      showSuccessMessage("Curso foi salvo com sucesso!");
     }
 
   ).catch( error =>

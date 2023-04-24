@@ -1,13 +1,21 @@
 import React from "react";
-import axios from "axios";
 import { withRouter } from "react-router-dom";
 import FormGroup from "../../components/FormGroup";
 import Card from "../../components/Card";
+import CursoApiService from "../../services/CursoApiService";
 
 
 
 class UpdateCurso extends React.Component {
 
+
+
+
+
+    constructor(){
+        super();
+        this.service = new CursoApiService();
+    }
 
     state = {
         id: 0,
@@ -21,7 +29,7 @@ class UpdateCurso extends React.Component {
 
 
     findById = (cursoId) => {
-        axios.get(`http://localhost:8080/curso/${cursoId}`)
+        this.service.find(cursoId)
         .then( response => 
             {
                 const curso = response.data[0];
@@ -43,7 +51,7 @@ class UpdateCurso extends React.Component {
 
 
     update = () => {
-        axios.put(`http://localhost:8080/curso/${this.state.id}`,
+       this.service.update(this.state.id,
 
             {
                 nome: this.state.nome,

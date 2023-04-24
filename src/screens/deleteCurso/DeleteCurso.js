@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react'
 
 
@@ -6,6 +5,8 @@ import { withRouter  } from 'react-router-dom';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import { showSuccessMessage } from '../../components/Toastr';
+import CursoApiService from '../../services/CursoApiService';
 
 
 
@@ -17,13 +18,16 @@ class DeleteCurso extends React.Component{
         id: 0,
     }
 
-
+    constructor(){
+        super();
+        this.service = new CursoApiService();
+    }
 
     delete = () => {
-        axios.delete(`http://localhost:8080/curso/${this.state.id}`
-        ).then( response => 
+       this.service.delete(this.state.id)
+        .then( response => 
             {
-                alert(`Curso ${this.state.id} deletado com sucesso`);
+                showSuccessMessage(`Curso ${this.state.id} deletado com sucesso`);
                 
             }
         ).catch( error => 
@@ -35,6 +39,7 @@ class DeleteCurso extends React.Component{
 
     cancel = () => {
         this.props.history.push('/');
+        
     }
 
     render(){

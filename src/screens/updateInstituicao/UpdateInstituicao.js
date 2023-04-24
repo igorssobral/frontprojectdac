@@ -1,9 +1,8 @@
 import React from "react";
-import axios from "axios";
-
 import FormGroup from "../../components/FormGroup";
 import Card from "../../components/Card";
 import { withRouter } from "react-router-dom";
+import InstituicaoApiService from "../../services/InstituicaoApiService";
 
 
 class UpdateInstituicao extends React.Component {
@@ -16,6 +15,11 @@ class UpdateInstituicao extends React.Component {
         
     }
 
+    constructor(){
+        super();
+        this.service = new InstituicaoApiService();
+    }
+
 
     componentDidMount(){
         const params = this.props.match.params;
@@ -24,7 +28,7 @@ class UpdateInstituicao extends React.Component {
     }
   
     findById = (instituicaoId) => {
-        axios.get(`http://localhost:8080/instituicao/${instituicaoId}`)
+       this.service.find(instituicaoId)
         .then( response => 
             {
                 const instituicao = response.data[0];
@@ -44,7 +48,7 @@ class UpdateInstituicao extends React.Component {
    
 
     update = () => {
-        axios.put(`http://localhost:8080/instituicao/${this.state.id}`, 
+       this.service.update(this.state.id, 
            
         {
                 nome: this.state.name,
@@ -67,7 +71,7 @@ class UpdateInstituicao extends React.Component {
     
     
     cancel = () => {
-       this.props.history.push("/ViewHome")
+       window.open("/ViewHome", "_self")
     }
 
 

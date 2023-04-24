@@ -1,13 +1,13 @@
 import React from "react";
 
 import {  withRouter } from "react-router-dom";
-import axios from 'axios';
 
 import InstituicaoTables from "../../components/InstituicaoTables";
 
 import './ViewInstituicoes.css'
 import FormGroup from "../../components/FormGroup";
 import Card from "../../components/Card";
+import InstituicaoApiService from "../../services/InstituicaoApiService";
 
 class ViewInstituicao extends React.Component {
 
@@ -22,7 +22,10 @@ class ViewInstituicao extends React.Component {
         ]
     }
  
-    
+    constructor(){
+        super();
+        this.service = new InstituicaoApiService();
+    }
 
     find = () => {
         var params = '?';
@@ -55,9 +58,9 @@ class ViewInstituicao extends React.Component {
 
             params = `${params}telefone=${this.state.telefone}`
         }
-        axios.get(`http://localhost:8080/instituicao${params}`
-
-        ).then(response => {
+       this.service.get(params)
+       
+       .then(response => {
 
             const instituicoes = response.data;
             this.setState({ instituicoes });
@@ -70,8 +73,8 @@ class ViewInstituicao extends React.Component {
     }
     delete = (instituicaoId) => {
 
-        axios.delete(`http://localhost:8080/instituicao/${instituicaoId}`
-        ).then(response => {
+        this.service.delete(instituicaoId)
+        .then(response => {
             
             this.find();
             

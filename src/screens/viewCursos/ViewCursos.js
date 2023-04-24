@@ -2,12 +2,12 @@ import React from "react";
 
 import { withRouter } from 'react-router-dom';
 
-import axios from 'axios';
 import CursosTables from "../../components/CursosTables";
 
 import './ViewCursos.css'
 import FormGroup from "../../components/FormGroup";
 import Card from "../../components/Card";
+import CursoApiService from "../../services/CursoApiService";
 
 class ViewCursos extends React.Component {
 
@@ -17,6 +17,11 @@ class ViewCursos extends React.Component {
         cursos: [
 
         ]
+    }
+
+    constructor(){
+        super();
+        this.service = new CursoApiService();
     }
 
     find = () => {
@@ -37,9 +42,8 @@ class ViewCursos extends React.Component {
             params = `${params}insId=${this.state.insId}`
         }
 
-        axios.get(`http://localhost:8080/curso${params}`
-
-        ).then(response => {
+        this.service.find(params)
+        .then(response => {
             const cursos = response.data;
             this.setState({ cursos });
             console.log(cursos)
@@ -52,8 +56,8 @@ class ViewCursos extends React.Component {
 
     delete = (cursoId) => {
 
-        axios.delete(`http://localhost:8080/curso/${cursoId}`
-        ).then(response => {
+        this.service.delete(cursoId)
+        .then(response => {
 
             this.find();
         }

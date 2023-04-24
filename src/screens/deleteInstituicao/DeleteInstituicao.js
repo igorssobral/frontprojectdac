@@ -1,10 +1,11 @@
 import React from 'react'
-import axios from 'axios';
 
 import { withRouter  } from 'react-router-dom';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import InstituicaoApiService from '../../services/InstituicaoApiService';
+import { showSuccessMessage } from '../../components/Toastr';
 
 
 
@@ -14,15 +15,19 @@ class DeleteInstituicao extends React.Component{
 
     state = {
         id: 0,
+        
     }
 
-
+    constructor(){
+        super();
+        this.service = new InstituicaoApiService();
+    }
 
     delete = () => {
-        axios.delete(`http://localhost:8080/instituicao/${this.state.id}`
-        ).then( response =>
+        this.service.delete(this.state.id)
+        .then( response =>
             {
-                alert(`Usuário ${this.state.id} deletado com sucesso`);
+                showSuccessMessage(`Institução ${this.state.id} deletado com sucesso`);
             }
         ).catch( error =>
             {
