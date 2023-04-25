@@ -1,6 +1,6 @@
 import React from "react";
 
-import { withRouter } from "react-router-dom";
+import {  withRouter, useHistory } from "react-router-dom";
 
 import InstituicaoTables from "../../components/InstituicaoTables";
 
@@ -11,6 +11,7 @@ import InstituicaoApiService from "../../services/InstituicaoApiService";
 
 class ViewInstituicao extends React.Component {
 
+  
 
     state = {
         name: '',
@@ -24,9 +25,15 @@ class ViewInstituicao extends React.Component {
 
     constructor() {
         super();
-        this.service = new InstituicaoApiService();
+        this.service = new InstituicaoApiService(); 
+        
+        
     }
 
+
+    componentDidMount(){
+        this.find();
+    }
     find = () => {
         var params = '?';
 
@@ -86,8 +93,7 @@ class ViewInstituicao extends React.Component {
             );
     }
 
-
-
+    
 
     render() {
 
@@ -145,7 +151,7 @@ class ViewInstituicao extends React.Component {
                             <div className="bs-component" >
                                 <br />
                                 <InstituicaoTables instituicoes={this.state.instituicoes}
-                                    edite={this.edite} delete={this.delete}
+                                     delete={this.delete}
                                 />
                             </div>
                         </div>

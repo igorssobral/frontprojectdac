@@ -24,6 +24,10 @@ class ViewCursos extends React.Component {
         this.service = new CursoApiService();
     }
 
+    componentDidMount(){
+        this.find();
+    }
+
     find = () => {
         var params = '?';
 
@@ -103,7 +107,7 @@ class ViewCursos extends React.Component {
                             <div className="bs-component">
                                 <br />
                                 <CursosTables cursos={this.state.cursos}
-                                  edite={this.edite}  delete={this.delete}
+                                   delete={this.delete}
                                      />
                             </div>
                         </div>

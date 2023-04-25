@@ -98,7 +98,7 @@ class UpdateCurso extends React.Component {
                                     <input type="text"
                                         className="form-control"
                                         placeholder="Digite o Id" id="inputId"
-                                        value={this.state.id}
+                                        
                                         onChange={(e) => this.setState({ id: e.target.value })} />
                                 </FormGroup>
                                 <FormGroup label="Nome" htmlFor="inputNome">

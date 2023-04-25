@@ -31,7 +31,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const AppRoutes = () => (
   <Router>
     <Switch>
-        <Route exact path="/" component={ViewHome} />
+       
         <Route path="/login" component={ScreenLogin} />
         <Route path="/createUser" component={ScreenCreateUser} />
 

@@ -21,11 +21,11 @@ class UpdateInstituicao extends React.Component {
     }
 
 
-    componentDidMount(){
-        const params = this.props.match.params;
-        const id = params.id;
-       return  this.findById(id);
-    }
+    // componentDidMount(){
+    //     const params = this.props.match.params;
+    //     const id = params.id;
+    //    return  this.findById(id);
+    // }
   
     findById = (instituicaoId) => {
        this.service.find(instituicaoId)
@@ -88,10 +88,11 @@ class UpdateInstituicao extends React.Component {
                         
                         <input type="text" className="form-control"
                              id="inputId" 
-                            value={this.state.id}
+                            
                             placeholder="Digite um Id"
                            
-                            onChange={(e) => this.setState({ id: e.target.value })} />
+                            onChange={(e) => this.setState({ id: e.target.value })}
+                            />
                     </FormGroup>
                     <FormGroup label="Nome" htmlFor="inputNome">
                         
