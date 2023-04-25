@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Route,  Redirect,Switch, BrowserRouter} from "react-router-dom";
+import { Route,  Redirect,Switch, BrowserRouter as Router} from "react-router-dom";
 
 
 import ViewInstituicoes from '../screens/viewInstituicao/ViewInstituicoes'
@@ -29,7 +29,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 const AppRoutes = () => (
-  <BrowserRouter>
+  <Router>
     <Switch>
         <Route exact path="/" component={ViewHome} />
         <Route path="/login" component={ScreenLogin} />
@@ -43,7 +43,7 @@ const AppRoutes = () => (
         <PrivateRoute path="/deleteInstituicao" component={DeleteInstituicao} />
         <PrivateRoute path="/deleteCurso" component={DeleteCurso} />
      </Switch>
-  </BrowserRouter>
+  </Router>
 );
 
 export default AppRoutes;

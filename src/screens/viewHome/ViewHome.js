@@ -48,17 +48,21 @@ class ViewHome extends React.Component {
           <BotaoCurso onClick={this.handleClickCurso} value="Curso" />
 
           {this.state.stateScreenInstituicao &&
-            <div>
-              <div className="fundo-tela"></div>
+
+            <div className="fundo-tela">
               <TelaInstituicao titulo="Instituição" onFechar={this.handleClose} />
             </div>
+
           }
 
           {this.state.stateScreenCurso &&
-            <div>
-              <div className="fundo-tela"></div>
+
+            <div className="fundo-tela">
+
               <TelaCurso titulo="Curso" onFechar={this.handleCloseCurso} />
             </div>
+
+
           }
 
 

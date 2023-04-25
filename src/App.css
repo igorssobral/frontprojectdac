@@ -5,6 +5,7 @@
 .App-header {
   background-color: #282c34;
   min-height: 92.6vh;
+  min-width: 92.6vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,7 +54,7 @@ span#title-create{
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
 
 }
 

@@ -15,7 +15,7 @@ export default class App extends React.Component {
     return (
       
         <SessionProvider>
-         <Navbar/>
+          <Navbar/>
           <AppRoutes/> 
         </SessionProvider>
 

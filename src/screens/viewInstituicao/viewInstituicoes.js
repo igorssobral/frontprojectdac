@@ -1,6 +1,6 @@
 import React from "react";
 
-import {  withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import InstituicaoTables from "../../components/InstituicaoTables";
 
@@ -21,8 +21,8 @@ class ViewInstituicao extends React.Component {
 
         ]
     }
- 
-    constructor(){
+
+    constructor() {
         super();
         this.service = new InstituicaoApiService();
     }
@@ -58,39 +58,39 @@ class ViewInstituicao extends React.Component {
 
             params = `${params}telefone=${this.state.telefone}`
         }
-       this.service.get(params)
-       
-       .then(response => {
+        this.service.get(params)
 
-            const instituicoes = response.data;
-            this.setState({ instituicoes });
-            console.log(instituicoes)
-        }
-        ).catch(error => {
-            console.log(error.response);
-        }
-        );
+            .then(response => {
+
+                const instituicoes = response.data;
+                this.setState({ instituicoes });
+                console.log(instituicoes)
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
     }
     delete = (instituicaoId) => {
 
         this.service.delete(instituicaoId)
-        .then(response => {
-            
-            this.find();
-            
-        }
-        ).catch(error => {
-            console.log(error.response);
-            alert('Delete primeiramente o curso que está ligado a essa instituição!');
-        }
-        );
+            .then(response => {
+
+                this.find();
+
+            }
+            ).catch(error => {
+                console.log(error.response);
+                alert('Delete primeiramente o curso que está ligado a essa instituição!');
+            }
+            );
     }
 
-    
+
 
 
     render() {
-        
+
         return (
 
             <div>
@@ -131,14 +131,14 @@ class ViewInstituicao extends React.Component {
 
                     </FormGroup>
 
-                   
+
 
                     <button onClick={this.find} type="button" className="btn btn-success">Buscar
 
                         <i className="pi pi-search"></i>
                     </button>
 
-                   
+
 
                     <div className="row" >
                         <div className="col-md-12">

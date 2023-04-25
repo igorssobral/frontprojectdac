@@ -37,6 +37,7 @@ export default class AuthenticationApiService extends ApiService {
     logout(){
         this.storageService.removeItem(LOGGED_USER);
         this.storageService.removeItem(TOKEN);
+        this.storageService.setItem("");
 
         return this.post('/logout');
     }

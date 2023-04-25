@@ -2,7 +2,7 @@ import React from 'react';
 import '../../screens/Telas.css'
 import FormGroup from '../../components/FormGroup';
 import InstituicaoApiService from '../../services/InstituicaoApiService';
-import { showSuccessMessage } from '../../components/Toastr';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 export default class TelaInstituicao extends React.Component {
 
@@ -18,24 +18,55 @@ export default class TelaInstituicao extends React.Component {
     this.service = new InstituicaoApiService();
   }
   saves = () => {
+
+    const errors = this.validate();
+    
+    if(errors.length > 0){
+        errors.forEach( (message ) => {
+          showErrorMessage(message);
+        } );
+        return false;
+    }
+
     this.service.create(
     {
     nome: this.state.nome,
     email: this.state.email,
     telefone: this.state.telefone
+    
+
   }
-  ).then(response =>
+  ).then( message => 
     {
-      console.log(response);
-      showSuccessMessage('Instituição foi salva com Sucesso!')
+        showSuccessMessage(`Instituição ${this.state.nome} criada com sucesso!`);
+        
     }
-
-  ).catch( error =>
+).catch( error => 
     {
-    console.log(error.response);
-}
-  );
+        console.log(error.response);
+    }
+);
 
+}
+
+validate = () => {
+  const errors = [];
+
+  if(!this.state.nome){
+      errors.push('Campo Nome é obrigatório!');
+  }
+
+  if(!this.state.email){
+    errors.push('Campo Email é obrigatório!');
+}else if(!this.state.email.match(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]/)){
+    errors.push('Informe um email válido!');
+}
+
+  if(!this.state.telefone){
+      errors.push('Campo Telefone é obrigatório!');
+  }
+
+  return errors;
 }
 
   render(props) {
@@ -62,7 +93,7 @@ export default class TelaInstituicao extends React.Component {
               value={this.state.telefone} onChange={(e) => this.setState({ telefone: e.target.value })} />
           </FormGroup>
 
-          <button className='save-instituicao'onClick={this.saves} >Salvar</button>
+          <button type='button' className='save-instituicao'onClick={this.saves} >Salvar</button>
         </form>
       </div>
     );

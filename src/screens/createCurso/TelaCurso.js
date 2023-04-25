@@ -2,7 +2,7 @@ import React from "react";
 import '../../screens/Telas.css'
 import FormGroup from "../../components/FormGroup";
 import CursoApiService from "../../services/CursoApiService";
-import { showSuccessMessage } from '../../components/Toastr';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 export default class TelaCurso extends React.Component {
 
@@ -20,6 +20,17 @@ export default class TelaCurso extends React.Component {
 }
 
   saves = () => {
+
+    const errors = this.validate();
+    
+        if(errors.length > 0){
+            errors.forEach( (message ) => {
+              showErrorMessage(message);
+            } );
+            
+            return false;
+        }
+
     this.service.create(
     {
       nome: this.state.nome,
@@ -38,10 +49,37 @@ export default class TelaCurso extends React.Component {
   ).catch( error =>
     {
     console.log(error.response);
+    showErrorMessage("Instituição não encontrada!")
 }
   );
 
 }
+validate = () => {
+  const errors = [];
+
+  if(!this.state.nome){
+      errors.push('Campo Nome é obrigatório!');
+  }
+
+  if(!this.state.cargaHoraria){
+      errors.push('Campo Carga Horária é obrigatório!');
+  }
+
+  if(!this.state.periodos){
+      errors.push('Campo Periodos é obrigatório!');
+  }
+
+  if(!this.state.mensalidade){
+      errors.push('Campo Mensalidade é obrigatório!');
+  }
+
+  if(!this.state.instituicaoId){
+      errors.push('Campo Instituição ID é obrigatório!');
+  }
+
+  return errors;
+}
+
   render(props) {
     return (
 
@@ -80,7 +118,7 @@ export default class TelaCurso extends React.Component {
             <input type="number" className="form-control" placeholder="Digite o Id da Instituição" id="inputInstituicaoId"
               value={this.state.instituicaoId} onChange={(e) => this.setState({ instituicaoId: e.target.value })} />
           </FormGroup>
-          <button className="save-curso" onClick={this.saves}>Salvar</button>
+          <button type="button" className="save-curso" onClick={this.saves}>Salvar</button>
         </form>
       </div>
     );

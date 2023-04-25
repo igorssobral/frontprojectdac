@@ -48,7 +48,7 @@ constructor(){
         ).then( message => 
             {
                 showSuccessMessage(message.data);
-                window.open("/login", '_self').setTimeout(1500);
+                window.open("/login", '_self');
             }
         ).catch( error => 
             {

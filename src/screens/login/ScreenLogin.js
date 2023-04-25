@@ -9,6 +9,8 @@ import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 import { AuthContext  } from '../../main/SessionProvider';
 
 class Login extends React.Component {
+  
+ 
 
   state = {
     username: '',
@@ -22,9 +24,17 @@ class Login extends React.Component {
         ).then(user =>  
           {
             if(user){
+              
               localStorage.setItem('logedUser', JSON.stringify(user.data));
+              
               showSuccessMessage(`Bem vindo, ${user.name}`);
-              window.open('/viewUsers');
+             
+              setTimeout(() =>{
+                window.open("/viewHome", '_self')
+               }, 1500)
+             
+              
+              
             }else{
               showErrorMessage('Login inválido!');
             }

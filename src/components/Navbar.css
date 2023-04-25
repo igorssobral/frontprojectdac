@@ -1,0 +1,37 @@
+.user-logged{
+    display: flex;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 520px;
+    bottom: 11px;
+    border-radius: 50%;
+    border-color: rgb(16, 252, 8);
+    background-color: rgb(16, 252, 8);
+    border-style: solid;
+    align-items: center;
+    justify-content: center;
+    color: white;
+   
+}
+
+.tittle-logged{
+    display: flex;
+    position: absolute;
+    width: 120px;
+    left: 380px;
+    bottom: 8px;
+    color: white;
+    font-weight: bold;
+   
+    
+}
+.user-name{
+    display: flex;
+    width: 200px;
+    position: inherit;
+    left: 20px;
+    font-style: italic;
+    font-weight: bolder;
+}
+
