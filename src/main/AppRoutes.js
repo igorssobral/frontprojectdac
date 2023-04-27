@@ -3,7 +3,7 @@ import React from "react";
 import { Route,  Redirect,Switch, BrowserRouter as Router} from "react-router-dom";
 
 
-import ViewInstituicoes from '../screens/viewInstituicao/ViewInstituicoes'
+import ViewInstituicoes from '../screens/viewInstituicao/viewInstituicoes'
 import ViewHome from '../screens/viewHome/ViewHome'
 import ViewCursos from "../screens/viewCursos/ViewCursos";
 import UpdateInstituicao from "../screens/updateInstituicao/UpdateInstituicao";
