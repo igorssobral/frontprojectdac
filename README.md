@@ -1,6 +1,6 @@
 # CRUD CURSO E INSTITUIÇÃO
 
-Esse projeto tem a finalidade de cadastrar cursos de uma instituição, esse projeto foi um dessafio da disciplina de DAC(Desenvolvimento de Aplicações Corporativas) onde o intuito era escolhermos 2 entidades e criar um CRUD onde ambas se relacionavam!
+Esse projeto tem a finalidade de cadastrar cursos em uma instituição, esse projeto foi um dessafio da disciplina de DAC(Desenvolvimento de Aplicações Corporativas) onde o intuito era escolhermos 2 entidades e criar um CRUD onde ambas se relacionavam!
 
  ### Entidades escolhidas
  
